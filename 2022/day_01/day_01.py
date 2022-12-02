@@ -12,11 +12,12 @@ class CalorieCounter:
         self.elf_Calorie_Total = 0
         self.food_book = []
         self.top3_total = 0
+        self.descending_list = []
     def update_total(self, calorie):
         self.elf_Calorie_Total += int(calorie)
     def add_top_3_elves(self):
-        descending_list = sorted(self.food_book, reverse=True)[:3]
-        self.top3_total = sum(descending_list)
+        self.descending_list = sorted(self.food_book, reverse=True)[:3]
+        self.top3_total = sum(self.descending_list)
 
 # instantiate class
 expedition = CalorieCounter()
@@ -37,5 +38,5 @@ print(f"Max value is: {max(expedition.food_book)}")
 # part 2
 
 # sort list by descending order and total top 3
-expedition.add_top_3_elves
+expedition.add_top_3_elves()
 print(f"Total of Top 3 elves: {expedition.top3_total}")
