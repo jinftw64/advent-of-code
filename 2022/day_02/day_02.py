@@ -4,38 +4,42 @@
 with open('text.txt') as file:
     strategy_guide = [line.split() for line in file]
 
-def convert(letter):
-    if letter in {"A", "X"}:
-        return 1
-    elif letter in {"B", "Y"}:
-        return 2
-    elif letter in {"C", "Z"}:
-        return 3
+class Game():
+    win = {
+            "X": "C", # rock: scissor
+            "Y": "A", # paper: rock
+            "Z": "B"  # scissor: paper
+            }
+    
+    draw = {
+            "X": "A", # rock
+            "Y": "B", # paper
+            "Z": "C"  # scissor
+            }
 
-def round(row):
-    return convert(row[1]) - convert(row[0])
+    sign_points = {
+            "X": 1,
+            "Y": 2,
+            "Z": 3
+            }
 
-def subtotal(row):
-    if round(row) in {-2, 1}:
-        return convert(row[1]) + 6
-    elif round(row) in {-1, 2}:
-        return convert(row[1]) + 0
-    elif round(row) == 0:
-        return convert(row[1]) + 3
+    total_points = 0
 
-total = 0
+    def points(self, list):
+        player = list[1]
+        elf = list[0]
+        if (player, elf) in Game.draw.items():
+            return Game.sign_points[player] + 3
+        elif (player, elf) in Game.win.items():
+            return Game.sign_points[player] + 6
+        else:
+            return Game.sign_points[player] + 0
+
+part1 = Game()
 
 for row in strategy_guide:
-    total += subtotal(row)
+    part1.total_points += part1.points(row)
 
-print(f"Total of all rounds: {total}")
-
-# part 2
-
-condition = {
-        "X": 0,
-        "Y": 3,
-        "Z": 6
-        }
+print(f"Total points for Part 1: {part1.total_points}")
 
 
