@@ -41,5 +41,3 @@ for row in strategy_guide:
     part1.total_points += part1.points(row)
 
 print(f"Total points for Part 1: {part1.total_points}")
-
-
