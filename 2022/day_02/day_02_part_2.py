@@ -22,8 +22,9 @@ class Game:
             "B": 5,
             "C": 6
             }
-    
-    def points(self, list):
+
+    @staticmethod
+    def points(list):
             player = list[1]
             elf = list[0]
 
@@ -34,7 +35,8 @@ class Game:
             elif player == "Z":
                 return Game.win_against[elf]
 
-    def total(self, file):
+    @staticmethod
+    def total(file):
         total_score = 0
         for line in file:
             total_score += Game.points(line)
