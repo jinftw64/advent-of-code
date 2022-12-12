@@ -8,4 +8,10 @@ alphabet_upper = list(string.ascii_uppercase)
 alphabet_lower = list(enumerate(alphabet_lower, 1))
 alphabet_upper = list(enumerate(alphabet_upper, 27))
 
-print(alphabet_lower)
+class Reorg:
+    letters = []
+
+    @staticmethod
+    def split_rucksack(string):
+        return (string[:len(string)//2], string[len(string)//2:])
+
