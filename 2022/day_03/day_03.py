@@ -5,7 +5,7 @@ import string
 alphabet_lower = list(string.ascii_lowercase)
 alphabet_upper = list(string.ascii_uppercase)
 
-alphabet_upper = list(enumerate(alphabet_upper, 1))
-alphabet_lower = list(enumerate(alphabet_lower, 27))
+alphabet_lower = list(enumerate(alphabet_lower, 1))
+alphabet_upper = list(enumerate(alphabet_upper, 27))
 
-
+print(alphabet_lower)
