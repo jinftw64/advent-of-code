@@ -6,8 +6,8 @@ alphabet_lower = list(string.ascii_lowercase)
 alphabet_upper = list(string.ascii_uppercase)
 
 class Reorg:
-    letters = []
-    total_points = 0
+    def __init__(self):
+        self.total_points = 0
 
     @staticmethod
     def split_rucksack(string):
@@ -19,18 +19,19 @@ class Reorg:
             if char in tuple[1]:
                 return char
 
-    # change this method to take 1 char as argument intead of a current list!
-    @staticmethod
-    def total(list):
-        for char in list:
-            if char.islower():
-                for value, letter in enumerate(alphabet_lower, 1):
-                    if char == letter:
-                        Reorg.total_points += value
-            else:
-                for value, letter in enumerate(alphabet_upper, 27):
-                    if char == letter:
-                        Reorg.total_points += value
+    def total(self, char):
+        if char.islower():
+            for value, letter in enumerate(alphabet_lower, 1):
+                if char == letter:
+                    self.total_points += value
+        else:
+            for value, letter in enumerate(alphabet_upper, 27):
+                if char == letter:
+                    self.total_points += value
+
+Day_3 = Reorg()
 
 with open('text.txt') as file:
     for line in file:
+
+
