@@ -33,5 +33,6 @@ Day_3 = Reorg()
 
 with open('text.txt') as file:
     for line in file:
+        Day_3.total(Day_3.find_duplicate(Day_3.split_rucksack(line)))
 
-
+print(Day_3.total_points)
