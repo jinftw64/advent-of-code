@@ -21,8 +21,6 @@ total = 0
 with open('text.txt') as file:
     lines = file.read().splitlines()
 
-# remove print debug function and 
-# implement intersect method 
 for line in lines:
     if len(list_3_lines) == 3:
         common_letter = list_3_lines[0].intersection(list_3_lines[1], list_3_lines[2])
