@@ -2,7 +2,7 @@
 # Day 03 Part 2
 
 import string
-from intertools import zip_longest
+from itertools import zip_longest
 
 alphabet_lower = list(string.ascii_lowercase)
 alphabet_upper = list(string.ascii_uppercase)
@@ -25,6 +25,6 @@ def group_lines(iterable, n, fillvalue = None):
 
 with open('text.txt') as file:
     lines = file.read().splitlines()
-
+    print(list(group_lines(lines, 3)))
 
 print(f"The total is: {total}")
