@@ -2,8 +2,12 @@
 # Day 03 Part 2
 
 import string
+from intertools import zip_longest
+
 alphabet_lower = list(string.ascii_lowercase)
 alphabet_upper = list(string.ascii_uppercase)
+
+total = 0
 
 def lower_convert(character):
     if character.islower():
@@ -15,18 +19,12 @@ def lower_convert(character):
             if character == letter:
                 return value
 
-list_3_lines = []
-total = 0
+def group_lines(iterable, n, fillvalue = None):
+    args = [iter(iterable)] * n
+    return zip_longest(*args, fillvalue = fillvalue)
 
 with open('text.txt') as file:
     lines = file.read().splitlines()
 
-for line in lines:
-    if len(list_3_lines) == 3:
-        common_letter = list_3_lines[0].intersection(list_3_lines[1], list_3_lines[2])
-        total += lower_convert(common_letter[0])
-        list_3_lines = []
-    else:
-        list_3_lines.append(set(line))
 
 print(f"The total is: {total}")
