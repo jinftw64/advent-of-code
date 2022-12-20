@@ -1,4 +1,4 @@
-# Advent of Code 2022
+# Advent of Code 2023
 # Day 03 Part 2
 
 import string
@@ -25,6 +25,10 @@ def group_lines(iterable, n, fillvalue = None):
 
 with open('text.txt') as file:
     lines = file.read().splitlines()
-    print(list(group_lines(lines, 3)))
-
+    for element in list(group_lines(lines, 3)):
+        elf1 = set(element[0])
+        elf2 = set(element[1])
+        elf3 = set(element[2])
+        char_list = list(elf1.intersection(elf2, elf3))
+        total += lower_convert(char_list[0])
 print(f"The total is: {total}")
