@@ -9,7 +9,7 @@ with open("stacks.txt") as file:
     for line in lines:
         row = []
         for i in range(9):
-            row.append(line[(i * 3):(i * 3 + 4)])
+            row.append(line[(i * 4):(i * 4 + 3)])
         stacks.append(row)
 
 for i in stacks:
